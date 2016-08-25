@@ -24,6 +24,7 @@ const button_styles = StyleSheet.create({
     button: {
       backgroundColor: '#aaa',
       padding: 10,
+      width: 200
     },
   });
 

@@ -25,12 +25,16 @@ module.exports = class deco extends Component {
     if (this.state.tip){
       return (
         <View style={styles.container}>
-          <Text>Tip of the day : {this.state.tip} </Text>
+          <Image source={{uri: this.state.tip_image}}
+            resizeMode="contain"
+            style={styles.backdrop}>
+            <Text>Tip of the day : {this.state.tip} </Text>
+          </Image>
         </View>
       )
     } else {
       return (
-        <View style={styles.container}>
+        <View style={styles.homeContainer}>
           <MyButton onPress={() => {this.getTip()}} customText="Get tip of the day" />
         </View>
       );
@@ -60,8 +64,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    // alignItems: 'center',
+    // backgroundColor: '#ffffff',
+    paddingTop: 30
+  },
+  homeContainer: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#ffffff',
+    paddingTop: 30
   },
   welcome: {
     fontSize: 20,
@@ -73,4 +85,11 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginTop: 20,
   },
+  backdrop: {
+    flex: 1,
+    // flexDirection: "column"
+  },
+  button: {
+    width: 200
+  }
 });
